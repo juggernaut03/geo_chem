@@ -1,0 +1,316 @@
+Product Requirements Document (PRD)
+Product Name
+
+Geo-Chem AI-Powered Sample Tracking & Customer Communication Platform
+
+Version
+
+1.0
+
+Prepared By
+
+Gaurav Pawar
+
+Overview
+
+Geo-Chem India currently manages customer sample requests, pickup scheduling, laboratory testing, report generation, and customer communication through multiple manual processes.
+
+The objective of this platform is to provide a centralized, AI-powered workflow management system that automates customer interactions, sample tracking, report delivery, notifications, and feedback collection while improving operational efficiency and customer experience.
+
+The platform will leverage AI Agents, Telegram/WhatsApp communication channels, workflow automation, and real-time status tracking.
+
+Business Objectives
+Primary Objectives
+Automate sample request creation
+Enable customers to track sample status in real time
+Reduce manual customer support efforts
+Improve turnaround visibility
+Automate report delivery
+Collect customer feedback automatically
+Provide management insights and operational analytics
+Success Metrics
+80% reduction in status inquiry calls
+60% reduction in manual customer follow-ups
+Improved customer satisfaction scores
+Faster response times
+Complete audit trail of sample lifecycle
+User Roles
+Customer
+Can:
+Create sample requests
+Track sample status
+Download reports
+Raise complaints
+Submit feedback
+Operations Team
+Can:
+View and manage orders
+Assign pickup engineers
+Update pickup status
+Monitor pending requests
+Laboratory Team
+Can:
+Receive samples
+Update testing status
+Upload reports
+Mark reports as approved
+Management Team
+Can:
+View dashboards
+Track KPIs
+Monitor delays
+Analyze feedback and complaints
+System Administrator
+Can:
+Manage users
+Configure workflows
+Manage notifications
+Access audit logs
+Product Scope
+In Scope
+Customer Portal
+Order creation
+Order tracking
+Report download
+Feedback submission
+Complaint registration
+Internal Portal
+Order management
+Sample lifecycle management
+Report management
+User management
+Dashboard analytics
+AI Agent Layer
+Customer assistance
+Order creation assistance
+Tracking assistance
+Complaint handling
+FAQ support
+Notification Engine
+Telegram notifications
+Email notifications
+Future WhatsApp integration
+Out of Scope (Phase 1)
+Billing and invoicing
+ERP replacement
+Inventory management
+Laboratory equipment integration
+Multi-language support
+Functional Requirements
+Module 1: Customer Request Creation
+Description
+
+Customers can create sample testing requests through Telegram Bot.
+
+Workflow
+Customer initiates request
+AI agent collects required information
+System validates data
+Order ID is generated
+Request is stored in database
+Confirmation is sent to customer
+Required Fields
+Customer Name
+Company Name
+Mobile Number
+Email
+Sample Type
+Pickup Address
+Output
+
+Generated Order ID:
+
+GC-YYYY-XXXX
+
+Example:
+
+GC-2026-1001
+Module 2: Sample Tracking
+Description
+
+Customers can track samples throughout the lifecycle.
+
+Supported Tracking Stages
+Pending Pickup
+Pickup Assigned
+Sample Collected
+Received At Lab
+Under Analysis
+Quality Review
+Report Generated
+Report Delivered
+Completed
+Customer Query Example
+Track GC-2026-1001
+System Response
+Current Status: Under Analysis
+Estimated Completion: 2 Days
+Module 3: Order Status Management
+Description
+
+Operations and laboratory teams update order status.
+
+Status Flow
+PENDING_PICKUP
+↓
+PICKUP_ASSIGNED
+↓
+SAMPLE_COLLECTED
+↓
+RECEIVED_AT_LAB
+↓
+UNDER_ANALYSIS
+↓
+QUALITY_REVIEW
+↓
+REPORT_GENERATED
+↓
+REPORT_DELIVERED
+↓
+FEEDBACK_PENDING
+↓
+COMPLETED
+Module 4: Automated Notifications
+Trigger Events
+Order Created
+Pickup Assigned
+Sample Collected
+Sample Received
+Analysis Started
+Report Generated
+Report Delivered
+Complaint Created
+Delivery Channels
+Telegram
+Email
+Future
+WhatsApp
+Module 5: Report Management
+Features
+Upload reports
+Generate secure download links
+Track report downloads
+Share reports automatically
+Supported Formats
+PDF
+DOCX
+XLSX
+Module 6: Complaint Management
+Customer Actions
+Report delay
+Report pickup issues
+Report quality concerns
+System Actions
+Generate ticket
+Notify operations team
+Escalate based on severity
+Module 7: Feedback Collection
+Trigger
+
+Report successfully delivered.
+
+Feedback Parameters
+Rating (1–5)
+Comments
+Suggestions
+AI Analysis
+Sentiment Analysis
+Complaint Detection
+Satisfaction Trends
+Module 8: Dashboard & Analytics
+Management Dashboard Metrics
+Total Orders
+Orders By Status
+Pending Samples
+Delayed Orders
+Average Turnaround Time
+Customer Satisfaction Score
+Complaint Trends
+AI Agent Requirements
+Hermes Supervisor Agent
+Responsible For
+Intent detection
+Agent routing
+Tool execution
+Response orchestration
+Order Creation Agent
+Handles
+Customer onboarding
+Request creation
+Data validation
+Tracking Agent
+Handles
+Status retrieval
+ETA communication
+Complaint Agent
+Handles
+Complaint registration
+Escalation workflows
+Feedback Agent
+Handles
+Feedback collection
+Sentiment analysis
+Non-Functional Requirements
+Performance
+API response time < 2 seconds
+Tracking response time < 3 seconds
+Notification delivery < 30 seconds
+Availability
+99.5% uptime
+Scalability
+Support 10,000+ orders
+Support 1,000+ concurrent users
+Security
+JWT Authentication
+Role-Based Access Control (RBAC)
+Audit logging
+Secure file access
+Technology Stack
+Frontend
+ReactJS
+Tailwind CSS
+Backend
+NestJS
+Node.js
+Database
+MongoDB
+Queue Processing
+Redis
+BullMQ
+AI Layer
+Minimax API
+Hermes Agent Framework
+Communication
+Telegram Bot API
+Email Service
+Future
+WhatsApp Business API
+Infrastructure
+Ubuntu VPS
+Nginx
+Docker
+MVP Deliverables
+Phase 1
+Telegram Customer Bot
+Order Creation
+Order Tracking
+MongoDB Backend
+Notification Engine
+Phase 2
+Internal Operations Portal
+Report Upload & Delivery
+Complaint Management
+Feedback Collection
+Phase 3
+Management Dashboard
+AI Analytics
+Voice AI Integration
+WhatsApp Integration
+Expected Business Outcomes
+Improved customer experience
+Faster sample visibility
+Reduced support workload
+Better operational efficiency
+Real-time communication
+Higher customer retention
+Scalable customer support operations
