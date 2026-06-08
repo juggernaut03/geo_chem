@@ -16,7 +16,7 @@ export class Order {
   @Prop({ required: true, unique: true, index: true })
   orderId: string;
 
-  @Prop({ type: Types.ObjectId, ref: 'User', required: true })
+  @Prop({ type: Types.ObjectId, ref: 'User' })
   customerId: Types.ObjectId;
 
   @Prop({ required: true })
