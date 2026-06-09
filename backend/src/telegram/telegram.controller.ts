@@ -11,6 +11,7 @@ export class TelegramController {
   @Post('webhook')
   @HttpCode(200)
   handleWebhook(@Body() update: any, @Headers('x-telegram-bot-api-secret-token') _token: string) {
-    return this.telegramService.handleUpdate(update);
+    // Fire-and-forget — respond 200 immediately so Telegram never retries
+    this.telegramService.handleUpdate(update).catch(() => null);
   }
 }

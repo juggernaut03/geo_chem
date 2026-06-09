@@ -69,7 +69,7 @@ export class HermesService {
     if (lower.includes('create') || lower.includes('new') || lower.includes('request') || lower.includes('sample')) {
       return { intent: 'CREATE_ORDER', confidence: 0.7 };
     }
-    if (lower.includes('complaint') || lower.includes('problem') || lower.includes('delay') || lower.includes('issue')) {
+    if (lower.includes('complaint') || lower.includes('problem') || lower.includes('delay') || lower.includes('issue') || lower.includes('lodge')) {
       return { intent: 'COMPLAINT', confidence: 0.7 };
     }
     if (lower.includes('feedback') || lower.includes('rating') || lower.includes('review')) {

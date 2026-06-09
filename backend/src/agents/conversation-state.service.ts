@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 export interface ConversationState {
   flow: 'IDLE' | 'CREATE_ORDER' | 'COMPLAINT' | 'FEEDBACK';
   step: string;
-  data: Record<string, string>;
+  data: Record<string, any>;
 }
 
 // In-memory store — sufficient for single-instance; swap for Redis if scaling

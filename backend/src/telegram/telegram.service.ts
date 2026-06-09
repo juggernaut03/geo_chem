@@ -38,6 +38,15 @@ export class TelegramService implements OnModuleInit {
 
     if (!text) return;
 
+    if (text === '/start') {
+      const firstName = userName ? ` ${userName}` : '';
+      await this.sendMessage(
+        telegramId,
+        `👋 Welcome${firstName}! I'm the *Geo-Chem* assistant.\n\nI can help you:\n• *Create* a sample test request — type "new order"\n• *Track* your order — type "track GC-2026-XXXX"\n• *Lodge* a complaint — type "complaint"\n• *Share* feedback — type "feedback"\n\nHow can I help you today?`,
+      );
+      return;
+    }
+
     try {
       const response = await this.agentsService.processMessage(telegramId, text, userName);
       await this.sendMessage(telegramId, response);
