@@ -5,12 +5,14 @@ import { Order, OrderDocument, Counter, CounterDocument } from '../schemas';
 import { OrderStatus } from '../common/enums';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class OrdersService {
   constructor(
     @InjectModel(Order.name) private orderModel: Model<OrderDocument>,
     @InjectModel(Counter.name) private counterModel: Model<CounterDocument>,
+    private notificationsService: NotificationsService,
   ) {}
 
   private async generateOrderId(): Promise<string> {
@@ -38,6 +40,9 @@ export class OrdersService {
         timestamp: new Date(),
       }],
     });
+
+    // Notify customer on creation
+    this.notificationsService.notifyOrderUpdate(order).catch(() => null);
     return order;
   }
 
@@ -68,6 +73,9 @@ export class OrdersService {
       timestamp: new Date(),
     });
     await order.save();
+
+    // Notify customer on every status change
+    this.notificationsService.notifyOrderUpdate(order).catch(() => null);
     return order;
   }
 
